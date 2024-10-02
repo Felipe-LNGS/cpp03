@@ -14,7 +14,7 @@ const std::string UNDERLINE = "\033[4m";
 
 class ClapTrap{
 
-    private :
+    protected :
         std::string _name;
         int _hitPoints;
         int _energyPoints;
@@ -30,4 +30,5 @@ class ClapTrap{
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 		void info();
+
 };

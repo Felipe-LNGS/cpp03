@@ -3,7 +3,7 @@
 int main()
 {
     ClapTrap Walle("Joe");
-
+	Walle.info();
     for(int i = 0;i < 8; i++)
         Walle.attack("Eugene");
     Walle.beRepaired(10);
@@ -12,10 +12,8 @@ int main()
     Walle.takeDamage(-1);
     Walle.beRepaired(-1);
     ///////
-    Walle.takeDamage(8);
-    Walle.beRepaired(9);
-    Walle.takeDamage(8);
-    Walle.attack("Eugene");
-    Walle.attack("Eugene");
-
+    Walle.takeDamage(42);
+    Walle.takeDamage(5);
+	Walle.attack("Eugene");
+	Walle.info();
 }

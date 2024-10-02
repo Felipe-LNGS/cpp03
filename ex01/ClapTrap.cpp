@@ -1,16 +1,16 @@
 #include "ClapTrap.hpp"
-#include <stdio.h>
+
 ClapTrap::ClapTrap() {
 std::cout << "Claptrap class called"<< std::endl;
 
 }
 
 ClapTrap::ClapTrap(ClapTrap const &src){
-	std::cout << "ClapTrap: Copy constructor called." << std::endl;
+	std::cout << "ClatTrap: Copy constructor called." << std::endl;
 	*this = src;
 }
 
-ClapTrap::ClapTrap(const std::string  name):_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+ClapTrap::ClapTrap(const std::string  name):_name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20){
 std::cout << "Claptrap named " << _name << " created" << std::endl;
 }
 
@@ -40,13 +40,13 @@ std::cout  <<YELLOW << "🔋Energy points left : " << _energyPoints << std::endl
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-		if ((int)amount < 0){
+	
+	if ((int)amount < 0){
 		std::cout<< RED << "Invalid amount!" << RESET <<std::endl;
 		return;}
-
-	if (this->_hitPoints == 0) {
-    std::cerr << RED<< "💀ClapTrap " << _name << " is already destroyed and can't take more damage!" <<RESET<< std::endl;
-    return;}
+	if (this->_energyPoints == 0){
+		std::cerr <<YELLOW << "🔋ClapTrap " <<_name << " has no more energy left and can't do anything!❌" <<RESET<< std::endl;
+		return ;}
 	if ((int)amount >= this->_hitPoints) {
         std::cerr << RED<< "💀ClapTrap " << _name << " takes " << amount << " damage and is defeated!" <<RESET<< std::endl;
         this->_hitPoints = 0;
